@@ -5,10 +5,10 @@ export default function CampusCard( props ) {
  
     return (
         <div>
-            <img src={pors.imageUrl } /> 
-            <p>{pors.name}</h1>
-            <p>{pors.address }</h1>
-            <p>{pors.description }</h1>
+            <img src={props.imageUrl } /> 
+            <p>{props.name}</p>
+            <p>{props.address }</p>
+            <p>{props.description }</p>
             
         </div>
     )

@@ -6,10 +6,10 @@ export default function StudentCard( props ) {
     return (
         <div>
             <img src={pors.imageUrl } /> 
-            <p>{pors.firstName }</h1>
-            <p>{pors.lastName }</h1>
-            <p>{pors.email }</h1>           
-             <p>{pors.gpa }</h1>
+            <p>{props.firstName }</p>
+            <p>{props.lastName }</p>
+            <p>{props.email }</p>           
+             <p>{props.gpa }</p>
             
         </div>
     )
