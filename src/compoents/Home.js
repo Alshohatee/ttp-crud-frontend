@@ -11,10 +11,19 @@ export default function Home( props ) {
                  <button>Campuses </button>
             </Link> 
             <Link to="/studentsview">
-                 <button>studentsview </button>
+                 <button>students  </button>
             </Link> 
 
-            
+
+            {/* just for now */}
+          
+            <Link to="/createstudent">
+                 <button>create student </button>
+            </Link> 
+              
+            <Link to="/createcampus">
+                 <button>create campus </button>
+            </Link> 
         </div>
     )
 }
