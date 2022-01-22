@@ -1,21 +1,30 @@
-import { useState } from "react"
+
+import React, { useEffect, useState } from "react";
 import Axios from "axios"
+import { Navigate } from 'react-router-dom';
 
 export default function CreateStudent(){
+
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
   const [imageUrl, setImageUrl] = useState("")
   const [address, setAddress] = useState("")
   const [description, setDescription] = useState("")
+  const [redirect, setRedirect] = useState(false)
 
 
   async function submitHandler(e){
     e.preventDefault()
-    await Axios.post(`http://localhost:8080/api/campus`, {firstName, lastName, email, imageUrl, address, description})
+    await Axios.post(`http://localhost:8080/api/student`, {firstName, lastName, email, imageUrl, address, description})
+    setRedirect(true)
   }
 
-
+ if (redirect) {    
+      
+        return ( < Navigate to = "/studentsview" /> )
+        
+    }
 
   return (
     <div>

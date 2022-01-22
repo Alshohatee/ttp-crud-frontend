@@ -2,7 +2,7 @@
 // view all campuses here
 
 // - [ ] Write a component to display a list of all campuses (just their names and images)
-
+import React, { useEffect, useState } from "react";
 export default function CampusesView( props ) {
     // use hooks to store campuses list from pros
     // pass the info from  campuses array to campus compoent

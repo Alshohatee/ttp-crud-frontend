@@ -1,11 +1,12 @@
 // Create a card to hold the student info
-export default function StudentCard( props ) {
+import React from "react";
+export default function StudentCard( {props} ) {
   
-    
+
  
     return (
-        <div>
-            <img src={pors.imageUrl } /> 
+        <div style={{backgroundColor:'red'}}>
+         {props.image  && <img src={props.image } /> }
             <p>{props.firstName }</p>
             <p>{props.lastName }</p>
             <p>{props.email }</p>           
@@ -14,3 +15,15 @@ export default function StudentCard( props ) {
         </div>
     )
 }
+
+
+
+// createdAt: "2022-01-22T03:48:57.278Z"
+// email: "steph@gmail.com"
+// firstName: "Steph"
+// gpa: "3.59"
+// id: 1
+// image: ""
+// lastName: "Guer"
+// updatedAt: "2022-01-22T03:48:57.278Z"
+// [[Prototype]]: Object

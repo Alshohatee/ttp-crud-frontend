@@ -1,12 +1,16 @@
 import { useState } from "react"
 import Axios from "axios"
+import { Navigate } from 'react-router-dom';
+
+
 
 export default function CreateCampus(){
-  const [name, setFirstName] = useState("")
+  const [name, setName] = useState("")
   const [imageUrl, setImageUrl] = useState("")
   const [address, setAddress] = useState("")
-  const [description, setDescription] = useState("")
+  const [description, setDescription] = useState("") 
 
+  const [redirect, setRedirect] = useState(false)
 
 
 
@@ -15,6 +19,11 @@ export default function CreateCampus(){
     await Axios.post(`http://localhost:8080/api/campus`, {name, imageUrl, address, description})
   }
 
+if (redirect) {    
+      
+        return ( < Navigate to = "/campusesview" /> )
+        
+}
 
   return (
     <div>
