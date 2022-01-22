@@ -1,5 +1,6 @@
 // Create a card to hold the campus info
-export default function CampusCard( props ) {
+
+export default function CampusCard( {props} ) {
   
     
  

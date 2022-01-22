@@ -1,8 +1,8 @@
-// import StudnetCard from './StudnetCard'
-// view all students here
 import React, { useEffect, useState } from "react";
 import Axios from "axios"
 import StudentCard from './StudentCard'
+// import StudnetCard from './StudnetCard'
+// view all students here
 // - [ ] Write a component to display a list of all students (just their names).
 export default function StudentsView( props ) {
     // use hooks to store students list from pros
@@ -23,6 +23,9 @@ export default function StudentsView( props ) {
   },[]);
    
     return (
-        <div> {students.map(student => <StudentCard key={student.id} props={student}/>)}</div>
+        <div> 
+        <h1>students</h1>
+        { students &&students.map(student => <StudentCard key={student.id} props={student}/>)}
+        </div>
     )
 }
