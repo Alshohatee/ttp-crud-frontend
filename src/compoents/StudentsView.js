@@ -25,7 +25,8 @@ export default function StudentsView( props ) {
     return (
         <div> 
         <h1>students</h1>
-        { students &&students.map(student => <StudentCard key={student.id} props={student}/>)}
+        { students.length != 0? students.map(student => <StudentCard key={student.id} props={student}/>): <h2> No Students  Yet</h2>
+        }
         </div>
     )
 }

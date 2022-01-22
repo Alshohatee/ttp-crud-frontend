@@ -17,7 +17,7 @@ export default function CampusesView( props ) {
     async function fectchData(){
       const allCampuses = await Axios.get(`http://localhost:8080/api/campuses`)
       console.log("this", allCampuses)
-      setCampuses(allCampuses.data)
+      // setCampuses(allCampuses.data)
     }
     fectchData()
       // console.log("this", allCampuses)
@@ -26,7 +26,8 @@ export default function CampusesView( props ) {
     return (
         <div>
         <h1>Campuses</h1>
-        { campuses &&  campuses.map(campus => <CampusCard key={campus.id} props={campus}/>)}
+        { campuses.length != 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={campus}/>) :
+         <h2> No Campuses </h2>}
             
         </div>
     )

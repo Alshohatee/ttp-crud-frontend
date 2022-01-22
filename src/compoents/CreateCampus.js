@@ -16,7 +16,8 @@ export default function CreateCampus(){
 
   async function submitHandler(e){
     e.preventDefault()
-    await Axios.post(`http://localhost:8080/api/campus`, {name, imageUrl, address, description})
+    await Axios.post(`http://localhost:8080/api/campuses`, {name, imageUrl, address, description})
+    setRedirect(true)
   }
 
 if (redirect) {    

@@ -16,7 +16,7 @@ export default function CreateStudent(){
 
   async function submitHandler(e){
     e.preventDefault()
-    await Axios.post(`http://localhost:8080/api/student`, {firstName, lastName, email, imageUrl, address, description})
+    await Axios.post(`http://localhost:8080/api/students`, {firstName, lastName, email, imageUrl, address, description})
     setRedirect(true)
   }
 
