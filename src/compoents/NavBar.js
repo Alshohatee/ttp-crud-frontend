@@ -13,7 +13,7 @@ export default function NavBar(  ) {
            <Link to="/">
                  <button>Home </button>
             </Link> 
-           <Link to="/campusesview">
+           <Link to="/campusesview" >
                  <button>Campuses </button>
             </Link> 
             <Link to="/studentsview">

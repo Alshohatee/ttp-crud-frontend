@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
 import NavBar from './NavBar'
+import Axios from "axios"
+import React, { useEffect, useState } from "react";
 
 
 // ○	[   ] see details about a single campus, including enrolled students (if any)
@@ -9,35 +12,30 @@ import NavBar from './NavBar'
 //     ■	[   ] with a validated form displaying real-time error messages
 //     ■	[   ] which redirects back to the single campus view
 
-export default function SingleCampusView( props) {
-    const [campusInfo, setCampusInfo] = useState([])
+export default function SingleCampusView() {
+      const [campusesInfo, setCampusInfo] = useState([])
 
-    // will hold the students info at this campus 
-    const [studentsAtCampus, setStudentsAtCampus] = useState([])
+     useEffect(() => {
+        const getId = window.location.href.split("/");
+        const id  = getId[getId.length -1]
 
- 
-
-   useEffect(() => {
     async function fectchData(){
-      const campusAPIInfo = await Axios.get(`http://localhost:8080/api/campuses/${props.id}`)
-      console.log("this", campusAPIInfo)
-      setCampusInfo(campusAPIInfo.data)
+      const campusInfo = await Axios.get(`http://localhost:8080/api/campuses/${id}`)
+      console.log("this", campusInfo)
+      setCampusInfo(campusInfo.data)
     }
     fectchData()
-      console.log("this", campusAPIInfo)
+     
   },[]);
-
-  
-  
- 
     return (
         <div>
         <NavBar />
-        <img  src={campusInfo.imageUrl} />
-        <p> {campusInfo.name}</p>
-        <p> {campusInfo.address}</p>
-        <p> {campusInfo.description}</p>
-           
+       <img  src={campusesInfo.imageUrl} />
+        <p> {campusesInfo.name}</p>
+        <p> {campusesInfo.address}</p>
+        <p> {campusesInfo.description}</p>
+    
+
 {/* studentsAtCampus will be render here  */}
             
         </div>

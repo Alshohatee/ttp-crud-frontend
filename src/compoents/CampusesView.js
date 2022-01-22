@@ -8,6 +8,11 @@ import CampusCard from "./CampusCard";
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
 
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 // here is where all campuses will be render
 export default function CampusesView( props ) {
     // use hooks to store campuses list from pros
@@ -30,10 +35,11 @@ export default function CampusesView( props ) {
         <div>
           <NavBar />
           <h1>Campuses</h1>
-           <Link to="/createcampus">
+           <Link to="/createcampus" >
                  <button>create A campus </button>
             </Link> 
-          { campuses.length !== 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={campus}/>) :
+            
+          { campuses.length !== 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={[campus,false]} />) :
           <h2> No Campuses </h2>}
               
         </div>

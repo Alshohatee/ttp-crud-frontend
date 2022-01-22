@@ -10,9 +10,6 @@ export default function Home( props ) {
             
             <NavBar />
             <h1>students and Campuses Website</h1>
-            
-
-
             {/* just for now */}
           
             <Link to="/createstudent">

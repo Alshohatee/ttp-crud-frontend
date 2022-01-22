@@ -5,6 +5,7 @@ import CampusesView from './compoents/CampusesView'
 import StudentsView from './compoents/StudentsView'
 import CreateStudent from './compoents/CreateStudent'
 import CreateCampus from './compoents/CreateCampus'
+import SingleCampusView from './compoents/SingleCampusView'
 // import Home from './compoents/Home'
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/studentsview" element={<StudentsView />} />
         <Route exact path="/createstudent" element={<CreateStudent />} />
         <Route exact path="/createcampus" element={<CreateCampus />} />
+        <Route exact path="/SingleCampusView/:id" element={<SingleCampusView />} />
       
     </Routes>
 </BrowserRouter>
