@@ -5,7 +5,10 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios"
 import CampusCard from "./CampusCard";
+import NavBar from './NavBar'
+import { Link } from 'react-router-dom'
 
+// here is where all campuses will be render
 export default function CampusesView( props ) {
     // use hooks to store campuses list from pros
     // pass the info from  campuses array to campus compoent
@@ -17,7 +20,7 @@ export default function CampusesView( props ) {
     async function fectchData(){
       const allCampuses = await Axios.get(`http://localhost:8080/api/campuses`)
       console.log("this", allCampuses)
-      // setCampuses(allCampuses.data)
+      setCampuses(allCampuses.data)
     }
     fectchData()
       // console.log("this", allCampuses)
@@ -25,10 +28,14 @@ export default function CampusesView( props ) {
 
     return (
         <div>
-        <h1>Campuses</h1>
-        { campuses.length != 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={campus}/>) :
-         <h2> No Campuses </h2>}
-            
+          <NavBar />
+          <h1>Campuses</h1>
+           <Link to="/createcampus">
+                 <button>create A campus </button>
+            </Link> 
+          { campuses.length !== 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={campus}/>) :
+          <h2> No Campuses </h2>}
+              
         </div>
     )
 }

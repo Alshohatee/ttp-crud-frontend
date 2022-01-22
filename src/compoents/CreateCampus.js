@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Axios from "axios"
 import { Navigate } from 'react-router-dom';
+import NavBar from './NavBar'
 
 
 
@@ -28,7 +29,10 @@ if (redirect) {
 
   return (
     <div>
+    < NavBar />
+
       <h1>Add a Campus to the Registry</h1>
+      
       <form onSubmit={submitHandler}>
     
         <label>

@@ -1,11 +1,14 @@
 // Create a card to hold the student info
 import React from "react";
+
+
 export default function StudentCard( {props} ) {
   
 
  
     return (
-        <div style={{backgroundColor:'red'}}>
+        <div>
+\
          {props.image  && <img src={props.image } /> }
             <p>{props.firstName }</p>
             <p>{props.lastName }</p>

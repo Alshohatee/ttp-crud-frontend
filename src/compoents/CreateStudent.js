@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios"
 import { Navigate } from 'react-router-dom';
+import NavBar from './NavBar'
 
 export default function CreateStudent(){
 
@@ -28,6 +29,7 @@ export default function CreateStudent(){
 
   return (
     <div>
+      <NavBar />
       <h1>Add a Student to the Registry</h1>
       <form onSubmit={submitHandler}>
         <label>

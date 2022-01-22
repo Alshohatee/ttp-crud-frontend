@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios"
 import StudentCard from './StudentCard'
-// import StudnetCard from './StudnetCard'
-// view all students here
-// - [ ] Write a component to display a list of all students (just their names).
+import NavBar from './NavBar'
+import { Link } from 'react-router-dom'
+// ○	[   ] see a list of all students in the database
+// ○	[   ] see an informative message if no students exist
+// ○	[   ] add a new student
+//     ■	[   ] with a validated form displaying real-time error messages
+//     ■	[   ] which redirects the new student’s single student view
+
 export default function StudentsView( props ) {
     // use hooks to store students list from pros
     // pass the info from  students array to student compoent
@@ -24,8 +29,12 @@ export default function StudentsView( props ) {
    
     return (
         <div> 
-        <h1>students</h1>
-        { students.length != 0? students.map(student => <StudentCard key={student.id} props={student}/>): <h2> No Students  Yet</h2>
+        <NavBar />
+        <h1>Students</h1>
+        <Link to="/createstudent">
+                 <button>create A student </button>
+            </Link> 
+        { students.length !== 0? students.map(student => <StudentCard key={student.id} props={student}/>): <h2> No Students  Yet</h2>
         }
         </div>
     )
