@@ -8,17 +8,18 @@ export default function Home( props ) {
     return (
         <div>
             
+            <h1 className = {"title"}> Students and Campuses Website</h1>
             <NavBar />
-            <h1>students and Campuses Website</h1>
             {/* just for now */}
-          
+          <div className ={"create"}>
             <Link to="/createstudent">
-                 <button>create student </button>
+                 <button> Create Student </button>
             </Link> 
               
             <Link to="/createcampus">
-                 <button>create campus </button>
+                 <button> Create Campus </button>
             </Link> 
+            </div>
         </div>
     )
 }

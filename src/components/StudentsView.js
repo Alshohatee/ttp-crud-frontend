@@ -3,6 +3,7 @@ import Axios from "axios"
 import StudentCard from './StudentCard'
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
+
 // ○	[   ] see a list of all students in the database
 // ○	[   ] see an informative message if no students exist
 // ○	[   ] add a new student
@@ -32,10 +33,16 @@ export default function StudentsView( props ) {
         <NavBar />
         <h1>Students</h1>
         <Link to="/createstudent">
-                 <button>create A student </button>
+                 <button> Create a student </button>
             </Link> 
         { students.length !== 0? students.map(student => <StudentCard key={student.id} props={[student, false]} />): <h2> No Students  Yet</h2>
         }
+
+
+
+
+
         </div>
     )
 }
+
