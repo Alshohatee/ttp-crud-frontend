@@ -55,7 +55,7 @@ export default function SingleCampusView() {
         <button onClick={()=> handleOnClick()}>
           Delete
         </button>
-    {/* { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null} */}
+    { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null}
 
 {/* studentsAtCampus will be render here  */}
             

@@ -3,11 +3,11 @@
 import NavBar from './NavBar'
 import Axios from "axios"
 import React, { useEffect, useState } from "react";
-
+import StudentCard from './StudentCard'
 // import StudentCard from './CampusCard'
  
 
-export default function StudentSingleView() {
+export default function SingleStudentView() {
       const [studentInfo, setStudentInfo] = useState([])
       const [isDelete, setIsDelete] = useState(false)
 
@@ -43,15 +43,16 @@ export default function StudentSingleView() {
     return (
         <div>
         <NavBar />
-        hello
-       <img  src={studentInfo.image} />
+        
+        <StudentCard props = {[studentInfo, true, ()=> handleOnClick() ]}/>
+       {/* <img  src={studentInfo.imageUrl} />
         <p> {studentInfo.firstName}</p>
         <p> {studentInfo.lastName}</p>
         <p> {studentInfo.email}</p>
-        <p> {studentInfo.gpa}</p>
-        <button onClick={()=> handleOnClick()}>
+        <p> {studentInfo.gpa}</p> */}
+        {/* <button onClick={()=> handleOnClick()}>
           Delete
-        </button>
+        </button> */}
     { isDelete ? <h1> {studentInfo.firstName} Deleted </h1> : null}
 
 {/* studentsAtCampus will be render here  */}
