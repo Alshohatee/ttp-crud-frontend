@@ -1,0 +1,36 @@
+body {
+    background-color: #282c34;
+    color: white;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
+
+button{
+    font-size: 24px;
+    background-color: whitesmoke;
+    color: black;
+    border: 4px solid #7d997c;
+    padding: 10px 24px;
+    margin-right: 10px;;
+}
+button:hover {
+    background-color: #7d997c; /* Green */
+    color: white;
+  }
+
+.nav {
+    text-align:center;
+    /* background-color: #9fafac; */
+    height: auto;
+    width: auto;
+}
+.title{
+    font-size: 48px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.create{
+    margin: 40px;
+    /* background-color: #7d997c; */
+}
