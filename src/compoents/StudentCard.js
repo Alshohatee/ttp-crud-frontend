@@ -4,16 +4,19 @@ import {Link }from "react-router-dom";
 import {Card, Button} from 'react-bootstrap';
 
 export default function StudentCard( {props} ) {
+
+  console.log(props)
       const info = props[0]
     const showAll = props[1]
+    const handleClick = props[2]
 console.log("hello")
  
     return (
         <div>
 
              
-<Card style={{ width: '18rem' , margin: '50px'}}>
-  { info.image ?  <Card.Img variant="top" src={info.image} />:  <Card.Img variant="top" src='https://picsum.photos/200'/>}
+<Card style={{ width: '18rem' , margin: '10px' , background: '#A0A0A0'}}>
+<Card.Img variant="top" style={{ marginTop: '10px'}} src= {info.image? info.image :'https://picsum.photos/200'} />
   <Card.Body>
     <Card.Title> Student Name  {info.firstName } {info.lastName } </Card.Title>
     <Card.Title>Card Title</Card.Title>
@@ -22,9 +25,10 @@ console.log("hello")
      GPA: {info.gpa }
     </Card.Text>
      <Link to={'/studentsingleview/'+ info.id} >
-                       
-    <Button variant="primary"> view </Button>
-            </Link> 
+                        
+      <Button variant="primary"> view </Button>
+    </Link> 
+     {showAll&& (<button onClick={()=> handleClick()}>Delete </button>)}
   </Card.Body>
 </Card>
             
