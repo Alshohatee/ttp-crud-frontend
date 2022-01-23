@@ -7,6 +7,7 @@ import Axios from "axios"
 import CampusCard from "./CampusCard";
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
+import { nanoid } from 'nanoid'
 
 // here is where all campuses will be render
 export default function CampusesView( props ) {
@@ -21,6 +22,7 @@ export default function CampusesView( props ) {
       const allCampuses = await Axios.get(`http://localhost:8080/api/campuses`)
       console.log("this", allCampuses)
       setCampuses(allCampuses.data)
+
     }
     fectchData()
       // console.log("this", allCampuses)
@@ -31,11 +33,15 @@ export default function CampusesView( props ) {
           <NavBar />
           <h1>Campuses</h1>
            <Link to="/createcampus" >
-                 <button>create A campus </button>
-            </Link> 
+                 <button>Create A Campus </button>
+           </Link>
             
-          { campuses.length !== 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={[campus,false]} />) :
-          <h2> No Campuses </h2>}
+          {
+              campuses.length !== 0 ?
+                campuses.map(campus => <CampusCard key={nanoid()} id={campus.id} campus={campus} />)
+              :
+                <h2> No Campuses </h2>
+          }
               
         </div>
     )

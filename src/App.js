@@ -1,13 +1,15 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './compoents/Home'
-import CampusesView from './compoents/CampusesView'
-import StudentsView from './compoents/StudentsView'
-import CreateStudent from './compoents/CreateStudent'
-import CreateCampus from './compoents/CreateCampus'
-import SingleCampusView from './compoents/SingleCampusView'
-import StudentSingleView from './compoents/StudentSingleView'
-// import Home from './compoents/Home'
+import Home from './components/Home'
+import CampusesView from './components/CampusesView'
+import StudentsView from './components/StudentsView'
+import CreateStudent from './components/CreateStudent'
+import CreateCampus from './components/CreateCampus'
+import SingleCampusView from './components/SingleCampusView'
+import SingleStudentView from './components/SingleStudentView'
+import EditCampus from "./components/EditCampus";
+import EditStudent from "./components/EditStudent"
+// import Home from './components/Home'
 function App() {
   return (
   <BrowserRouter>
@@ -18,8 +20,10 @@ function App() {
         <Route exact path="/createstudent" element={<CreateStudent />} />
         <Route exact path="/createcampus" element={<CreateCampus />} />
         <Route exact path="/SingleCampusView/:id" element={<SingleCampusView />} />
-        <Route exact path="/studentsingleview/:id" element={<StudentSingleView />} />
-      
+        <Route exact path="/studentsingleview/:id" element={<SingleStudentView />} />
+        <Route exact path="/editcampus/:id" element={<EditCampus />} />
+        <Route exact path="/editstudent/:id" element={<EditStudent />} />
+
     </Routes>
 </BrowserRouter>
   );

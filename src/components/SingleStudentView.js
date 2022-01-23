@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 // import StudentCard from './CampusCard'
  
 
-export default function StudentSingleView() {
+export default function SingleStudentView() {
       const [studentInfo, setStudentInfo] = useState([])
       const [isDelete, setIsDelete] = useState(false)
 
