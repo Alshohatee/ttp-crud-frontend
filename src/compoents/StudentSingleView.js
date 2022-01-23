@@ -4,12 +4,12 @@ import NavBar from './NavBar'
 import Axios from "axios"
 import React, { useEffect, useState } from "react";
 
-
+// import StudentCard from './CampusCard'
  
 
 export default function StudentSingleView() {
       const [studentInfo, setStudentInfo] = useState([])
-     
+      const [isDelete, setIsDelete] = useState(false)
 
      useEffect(() => {
         const getId = window.location.href.split("/");
@@ -24,7 +24,21 @@ export default function StudentSingleView() {
      
   },[]);
 
-  
+  function handleOnClick(){
+
+    // DELETE request using axios with error handling
+  Axios.delete(`http://localhost:8080/api/students/${studentInfo.id}`)
+        .then(response => setIsDelete(true))
+        
+        .catch(error => {
+          setIsDelete(false)
+          
+            console.error('There was an error!', error);
+        })
+
+      }
+      console.log(studentInfo.imageUrl)
+
 
     return (
         <div>
@@ -35,7 +49,10 @@ export default function StudentSingleView() {
         <p> {studentInfo.lastName}</p>
         <p> {studentInfo.email}</p>
         <p> {studentInfo.gpa}</p>
-       
+        <button onClick={()=> handleOnClick()}>
+          Delete
+        </button>
+    { isDelete ? <h1> {studentInfo.firstName} Deleted </h1> : null}
 
 {/* studentsAtCampus will be render here  */}
             
