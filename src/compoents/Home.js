@@ -13,11 +13,11 @@ export default function Home( props ) {
             {/* just for now */}
           <div className ={"create"}>
             <Link to="/createstudent">
-                 <button> Create student </button>
+                 <button> Create Student </button>
             </Link> 
               
             <Link to="/createcampus">
-                 <button> Create campus </button>
+                 <button> Create Campus </button>
             </Link> 
             </div>
         </div>

@@ -31,7 +31,7 @@ export default function CampusesView( props ) {
           <NavBar />
           <h1>Campuses</h1>
            <Link to="/createcampus" >
-                 <button>create A campus </button>
+                 <button> Create a campus </button>
             </Link> 
             
           { campuses.length !== 0 ?    campuses.map(campus => <CampusCard key={campus.id} props={[campus,false]} />) :

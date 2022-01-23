@@ -36,23 +36,23 @@ if (redirect) {
       <form onSubmit={submitHandler}>
     
         <label>
-           Name:
+           Name: 
           <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
-        </label>
+        </label><br/>
         <label>
-          Image Url:
+          Image Url: 
           <input type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <label>
-         Address:
+         Address: 
           <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <label>
-         Description :
+         Description:   
           <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <input type="submit" value="Submit" />
       </form>

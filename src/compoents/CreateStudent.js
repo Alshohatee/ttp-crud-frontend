@@ -35,32 +35,32 @@ export default function CreateStudent(){
         <label>
           First Name:
           <input type="text" name="firstName" value={firstName} onChange={(e) =>setFirstName(e.target.value)}/>
-        </label>
+        </label> <br/>
 
         <label>
           Last Name:
           <input type="text" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <label>
           Email:
-          <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        </label>
+          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        </label><br/>
 
         <label>
           Image Url:
           <input type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <label>
          Address:
           <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <label>
          Description :
           <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-        </label>
+        </label><br/>
 
         <input type="submit" value="Submit" />
       </form>
