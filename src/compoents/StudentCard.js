@@ -1,6 +1,7 @@
 // Create a card to hold the student info
 import React from "react";
 import {Link }from "react-router-dom";
+import {Card, Button} from 'react-bootstrap';
 
 export default function StudentCard( {props} ) {
       const info = props[0]
@@ -10,14 +11,22 @@ console.log("hello")
     return (
         <div>
 
-         {info.image  && <img src={info.image} /> }
-            <p>{info.firstName }</p>
-            <p>{info.lastName }</p>
-            <p>{info.email }</p>           
-             <p>{info.gpa }</p>
-            <Link to={'/studentsingleview/'+ info.id} >
-                        view
-            </Link>   
+             
+<Card style={{ width: '18rem' , margin: '50px'}}>
+  { info.image ?  <Card.Img variant="top" src={info.image} />:  <Card.Img variant="top" src='https://picsum.photos/200'/>}
+  <Card.Body>
+    <Card.Title> Student Name  {info.firstName } {info.lastName } </Card.Title>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+     Email: {info.email }
+     GPA: {info.gpa }
+    </Card.Text>
+     <Link to={'/studentsingleview/'+ info.id} >
+                       
+    <Button variant="primary"> view </Button>
+            </Link> 
+  </Card.Body>
+</Card>
             
         </div>
     )
