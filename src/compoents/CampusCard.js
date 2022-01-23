@@ -8,7 +8,7 @@ import SingleCampusView from "./SingleCampusView";
 export default function CampusCard( {props} ) {
     const info = props[0]
     const showAll = props[1]
-    
+
 
   function CardLessInfo(){
       return (

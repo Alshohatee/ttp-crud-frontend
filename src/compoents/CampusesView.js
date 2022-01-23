@@ -8,11 +8,6 @@ import CampusCard from "./CampusCard";
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
 
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
 // here is where all campuses will be render
 export default function CampusesView( props ) {
     // use hooks to store campuses list from pros

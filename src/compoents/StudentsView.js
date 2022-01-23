@@ -34,7 +34,7 @@ export default function StudentsView( props ) {
         <Link to="/createstudent">
                  <button>create A student </button>
             </Link> 
-        { students.length !== 0? students.map(student => <StudentCard key={student.id} props={student}/>): <h2> No Students  Yet</h2>
+        { students.length !== 0? students.map(student => <StudentCard key={student.id} props={[student, false]} />): <h2> No Students  Yet</h2>
         }
         </div>
     )

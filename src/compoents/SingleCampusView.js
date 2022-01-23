@@ -24,6 +24,7 @@ export default function SingleCampusView() {
       const campusInfo = await Axios.get(`http://localhost:8080/api/campuses/${id}`)
       console.log("this", campusInfo)
       setCampusInfo(campusInfo.data)
+      alert("hellp")
     }
     fectchData()
      
@@ -54,7 +55,7 @@ export default function SingleCampusView() {
         <button onClick={()=> handleOnClick()}>
           Delete
         </button>
-    { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null}
+    {/* { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null} */}
 
 {/* studentsAtCampus will be render here  */}
             
