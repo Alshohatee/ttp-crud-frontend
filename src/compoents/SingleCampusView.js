@@ -14,6 +14,7 @@ import React, { useEffect, useState } from "react";
 
 export default function SingleCampusView() {
       const [campusesInfo, setCampusInfo] = useState([])
+      const [isDelete, setIsDelete] = useState(false)
 
      useEffect(() => {
         const getId = window.location.href.split("/");
@@ -27,6 +28,22 @@ export default function SingleCampusView() {
     fectchData()
      
   },[]);
+
+  function handleOnClick(){
+
+    // DELETE request using axios with error handling
+  Axios.delete(`http://localhost:8080/api/campuses/${campusesInfo.id}`)
+        .then(response => setIsDelete(true))
+        
+        .catch(error => {
+          setIsDelete(false)
+            console.error('There was an error!', error);
+        })
+
+      }
+      
+
+
     return (
         <div>
         <NavBar />
@@ -34,7 +51,10 @@ export default function SingleCampusView() {
         <p> {campusesInfo.name}</p>
         <p> {campusesInfo.address}</p>
         <p> {campusesInfo.description}</p>
-    
+        <button onClick={()=> handleOnClick()}>
+          Delete
+        </button>
+    { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null}
 
 {/* studentsAtCampus will be render here  */}
             
