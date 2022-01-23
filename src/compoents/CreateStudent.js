@@ -14,7 +14,6 @@ export default function CreateStudent(){
   const [description, setDescription] = useState("")
   const [redirect, setRedirect] = useState(false)
 
-
   async function submitHandler(e){
     e.preventDefault()
     await Axios.post(`http://localhost:8080/api/students`, {firstName, lastName, email, imageUrl, address, description})

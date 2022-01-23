@@ -24,7 +24,7 @@ export default function SingleCampusView() {
       const campusInfo = await Axios.get(`http://localhost:8080/api/campuses/${id}`)
       console.log("this", campusInfo)
       setCampusInfo(campusInfo.data)
-      alert("hellp")
+      alert("help")
     }
     fectchData()
      
