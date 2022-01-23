@@ -44,7 +44,7 @@ export default function CreateStudent(){
 
         <label>
           Email:
-          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
         </label><br/>
 
         <label>
