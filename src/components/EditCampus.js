@@ -95,11 +95,11 @@ export default function EditCampus() {
         <div>
             <h1>Edit Campus</h1>
             <NavBar />
-            <form onSubmit={submitHandler}>
-                <label>Campus Name<input name="name" value={formElements.name} onChange={changeHandler} /></label>
-                <label>Campus Location<input name="address" value={formElements.address} onChange={changeHandler} /></label>
-                <label>Campus Image URL<input name="image" value={formElements.image} onChange={changeHandler} /></label>
-                <label>Campus Description<input name="description" value={formElements.description} onChange={changeHandler} /></label>
+            <form onSubmit={submitHandler}> <br/>
+                <label>Campus Name<input type = "text" name="name" value={formElements.name} onChange={changeHandler} /></label><br/>
+                <label>Campus Location<input type = "text" name="address" value={formElements.address} onChange={changeHandler} /></label><br/>
+                <label>Campus Image URL<input type = "text" name="image" value={formElements.image} onChange={changeHandler} /></label><br/>
+                <label>Campus Description<input type = "text" name="description" value={formElements.description} onChange={changeHandler} /></label><br/>
                 <button>Save Changes</button>
                 {errorMsg && <span style={{color: "red"}}>An error has occurred. Detailed error info available on backend server console.</span>}
             </form>
