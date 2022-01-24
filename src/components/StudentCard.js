@@ -6,7 +6,7 @@ import {Card, Button} from 'react-bootstrap';
 export default function StudentCard( {props} ) {
 
   console.log(props)
-      const info = props[0]
+    const info = props[0]
     const showAll = props[1]
     const handleClick = props[2]
 console.log("hello")
@@ -36,14 +36,3 @@ console.log("hello")
     )
 }
 
-
-
-// createdAt: "2022-01-22T03:48:57.278Z"
-// email: "steph@gmail.com"
-// firstName: "Steph"
-// gpa: "3.59"
-// id: 1
-// image: ""
-// lastName: "Guer"
-// updatedAt: "2022-01-22T03:48:57.278Z"
-// [[Prototype]]: Object

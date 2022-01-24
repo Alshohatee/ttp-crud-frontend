@@ -2,15 +2,19 @@
 
 import React ,  { useState } from "react"
 import {Link }from "react-router-dom";
-
+import {Card, Button} from 'react-bootstrap';
 
 // Create a card to hold the campus info
 export default function CampusCard( props ) {
+    console.log(props)
+    const info = props.campus[0]
+    const showAll = props.campus[1]
+    const handleClick = props.campus[2]
 
   function CardLessInfo(){
       return (
       <div>
-        <img src={props.campus.image} />
+        {/* <img src={props.campus.image} />
             <p>{props.campus.name}</p>
             <p>{props.campus.address }</p>
 
@@ -22,31 +26,56 @@ export default function CampusCard( props ) {
           <Link
               to={`/editcampus/${props.id}`}
               state={{ id: props.id }}>
-              Update</Link>
+              Update</Link> */}
       </div>)
   }
   function CardWithInfo(){
       return (
       <div>
-        <img src={props.campus.image } />
-            <p>{props.campus.name}</p>
-            <p>{props.campus.address }</p>
-            <p>{props.campus.description }</p>
-          <Link
+        
+            
+            <p> Address: {info.address }</p>
+            <p> Description: {info.description }</p>
+          {/* <Link
               to={`/singlecampusview/${props.id}`}
               state={{ id: props.id }}>
-              View</Link>
+              View</Link> */}
 
-          <Link
+          {/* <Link
               to={`/editcampus/${props.id}`}
               state={{ id: props.id }}>
-              Update</Link>
+              Update</Link> */}
       </div>)
   }
     return (
         <div>
+            <Card style={{ width: '18rem' , margin: '10px' , background: '#A0A0A0'}}>
+                <Card.Img variant="top" style={{ marginTop: '10px'}} src= {info.image? info.image :'https://picsum.photos/200'} />
+                <Card.Body>
+                        <Card.Title> Campus Name  {info.name} </Card.Title>
+                      
+                        <Card.Text>
+                        { !(props.campus.description) ? <CardWithInfo /> : <CardLessInfo />}
+
+                        </Card.Text>
+                        {!showAll&& <Link
+                            to={`/singlecampusview/${props.id}`}
+                            state={{ id: props.id }}>
+                            <Button variant="primary"> view </Button> 
+                        </Link> }
+
+                        <Link
+                            to={`/editcampus/${props.id}`}
+                            state={{ id: props.id }}>
+                            <Button variant="primary"> Update </Button> 
+                        </Link>
+
+                    
+                        {showAll&& (<button onClick={()=> handleClick()}>Delete </button>)}
+                </Card.Body>
+
+            </Card> 
     
-        { !(props.campus.description) ? <CardWithInfo /> : <CardLessInfo />}
            
             
             
