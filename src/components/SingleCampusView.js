@@ -1,23 +1,29 @@
 import NavBar from './NavBar'
 import Axios from "axios"
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"
 import CampusCard from './CampusCard'
+import { nanoid } from 'nanoid'
+import StudentCard from "./StudentCard";
 
 
 export default function SingleCampusView() {
-      const [campusesInfo, setCampusInfo] = useState([])
-      const [isDelete, setIsDelete] = useState(false)
 
-     useEffect(() => {
-        const getId = window.location.href.split("/");
-        const id  = getId[getId.length -1]
+    const location = useLocation()
+    const { id } = location.state
 
-    async function fetchData(){
-      const campusInfo = await Axios.get(`http://localhost:8080/api/campuses/${id}`)
-      setCampusInfo(campusInfo.data)
-    }
-    fetchData().then(() => console.log("Data Fetched"))
-     
+    const [campusesInfo, setCampusInfo] = useState([])
+    const [studentsEnrolled, setStudentsEnrolled] = useState([])
+    const [isDelete, setIsDelete] = useState(false)
+
+    useEffect(() => {
+        async function fetchData() {
+            const { data } = await Axios.get(`http://localhost:8080/api/campuses/${id}/students`) // endpoint returns campus info and its students
+            const { campus, students } = data
+            setCampusInfo(campus)
+            setStudentsEnrolled(students)
+        }
+        fetchData().then(() => console.log("Data Fetched"))
   },[]);
 
   function handleOnClick(){
@@ -34,8 +40,12 @@ export default function SingleCampusView() {
     return (
         <div>
             <NavBar />
-            <CampusCard  key={campusesInfo.id}  campus={[ campusesInfo,true,handleOnClick ]} />
+            <CampusCard key={campusesInfo.id}  campus={[ campusesInfo,true,handleOnClick ]} />
             { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null}
+            {studentsEnrolled.length > 0
+                ? studentsEnrolled.map(student => <StudentCard key={nanoid()} props={[student, false]} />)
+                : <h1>There are no students currently enrolled for this campus.</h1>
+            }
         </div>
     )
 }
