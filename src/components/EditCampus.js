@@ -1,8 +1,9 @@
-import React from "react";
+import React , {useState}from "react";
 import Axios from "axios"
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "./NavBar";
 import { nanoid } from "nanoid"
+import CampusFrom from "./Forms/CampusForm"
 
 export default function EditCampus() {
     const location = useLocation()
@@ -11,6 +12,12 @@ export default function EditCampus() {
     const navigate = useNavigate()
     const [errorMsg, showErrorMsg] = React.useState(false)
 
+    // added this 
+    // const { name, image, address, description } = formElements
+    const [name, setName] = useState("")
+    const [ImageUrl, setImageUrl] = useState("")
+    const [address, setAddress] = useState("")
+    const [description, setDescription] = useState("") 
     const [formElements, setFormElements] = React.useState({
         name: "",
         image: "",
@@ -28,8 +35,8 @@ export default function EditCampus() {
     async function submitHandler(e) {
         e.preventDefault()
         try {
-            const { name, image, address, description } = formElements
-            await Axios.patch(`http://localhost:8080/api/campuses/${id}`, { name, image, address, description })
+            
+            await Axios.patch(`http://localhost:8080/api/campuses/${id}`, { name, ImageUrl, address, description })
             navigate(-1)
         } catch (error) {
             console.log(error)
@@ -96,14 +103,16 @@ export default function EditCampus() {
         <div>
             <h1>Edit Campus</h1>
             <NavBar />
-            <form onSubmit={submitHandler}>
-                <label>Campus Name<input name="name" value={formElements.name} onChange={changeHandler} /></label>
-                <label>Campus Location<input name="address" value={formElements.address} onChange={changeHandler} /></label>
-                <label>Campus Image URL<input name="image" value={formElements.image} onChange={changeHandler} /></label>
-                <label>Campus Description<input name="description" value={formElements.description} onChange={changeHandler} /></label>
+            <form onSubmit={submitHandler}> <br/>
+                <label>Campus Name<input type = "text" name="name" value={formElements.name} onChange={changeHandler} /></label><br/>
+                <label>Campus Location<input type = "text" name="address" value={formElements.address} onChange={changeHandler} /></label><br/>
+                <label>Campus Image URL<input type = "text" name="image" value={formElements.image} onChange={changeHandler} /></label><br/>
+                <label>Campus Description<input type = "text" name="description" value={formElements.description} onChange={changeHandler} /></label><br/>
                 <button>Save Changes</button>
                 {errorMsg && <span style={{color: "red"}}>An error has occurred. Detailed error info available on backend server console.</span>}
             </form>
+                {/* I add this  */}
+                < CampusFrom props={[submitHandler, name, ImageUrl, address, description,setName , setImageUrl, setAddress, setDescription]}/>
             <h2>Unassigned Students</h2>
             {unassignedStudents.length > 0 ?
                 <form onSubmit={addStudentToCampus}>
@@ -129,6 +138,7 @@ export default function EditCampus() {
                     })
                     : <h3>There are currently no students registered with this campus.</h3>
                 }
+                
             </div>
         </div>
     )
