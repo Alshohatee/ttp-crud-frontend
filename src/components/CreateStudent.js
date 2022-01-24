@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios"
 import { Navigate } from 'react-router-dom';
 import NavBar from './NavBar'
+import StudentForm from "./Forms/Student";
 
 export default function CreateStudent(){
 
@@ -13,40 +14,7 @@ export default function CreateStudent(){
   const [gpa, setGPA] = useState("")
   const [redirect, setRedirect] = useState(false)
   
-  // const nameValidation = (fieldName, fieldValue) => {
-  //   if (fieldValue.trim() === '') {
-  //     return `${fieldName} is required`;
-  //   }
-  //   if (/[^a-zA-Z -]/.test(fieldValue)) {
-  //     return 'Invalid characters';
-  //   }
-  //   if (fieldValue.trim().length < 3) {
-  //     return `${fieldName} needs to be at least three characters`;
-  //   }
-  //   return null;
-  // };
-  
-  // const emailValidation = email => {
-  //   if (
-  //     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-  //       email,
-  //       )
-  //       ) {
-  //     return null;
-  //   }
-  //   if (email.trim() === '') {
-  //     return 'Email is required';
-  //   }
-  //   return 'Please enter a valid email';
-  // };
-  
-  // const validate = {
-  //   firstName: name => nameValidation('First Name', name),
-  //   lastName: name => nameValidation('Last Name', name),
-  //   email: emailValidation,
-  // };
-  
-  async function submitHandler(e){
+  async function handleSubmit(e){
     e.preventDefault()
     await Axios.post(`http://localhost:8080/api/students`, {firstName, lastName, email, image, gpa})
     setRedirect(true)
@@ -61,8 +29,8 @@ export default function CreateStudent(){
   return (
     <div>
       <NavBar />
-      <h1>Add a Student to the Registry</h1>
-      <form onSubmit={submitHandler}>
+      {/* <h1>Add a Student to the Registry</h1>
+      <form onSubmit={handleSubmit}>
         <label>
           First Name:
           <input type="text" name="firstName" className = "form-control" value={firstName} onChange={(e) =>setFirstName(e.target.value)}/>
@@ -89,7 +57,8 @@ export default function CreateStudent(){
         </label><br/>
 
         <input type="submit" value="Submit" />
-      </form>
+      </form> */}
+      < StudentForm props={[handleSubmit, firstName, lastName, email, image,gpa,setFirstName, setLastName, setEmail, setImage,setGPA]}/>
     </div>
   )
 }
