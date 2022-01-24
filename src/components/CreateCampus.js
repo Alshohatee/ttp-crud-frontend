@@ -2,7 +2,7 @@ import { useState } from "react"
 import Axios from "axios"
 import { Navigate } from 'react-router-dom';
 import NavBar from './NavBar'
-
+import CampusFrom from './Forms/CampusForm'
 
 
 export default function CreateCampus(){
@@ -31,7 +31,7 @@ if (redirect) {
 
       <h1>Add a Campus to the Registry</h1>
       
-      <form onSubmit={submitHandler}>
+      {/* <form onSubmit={submitHandler}>
     
         <label>
            Name: 
@@ -53,7 +53,8 @@ if (redirect) {
         </label><br/>
 
         <input type="submit" value="Submit" />
-      </form>
+      </form> */}
+      < CampusFrom props={[submitHandler, name, imageUrl, address, description,setName , setImageUrl, setAddress, setDescription]}/>
     </div>
   )
 }
