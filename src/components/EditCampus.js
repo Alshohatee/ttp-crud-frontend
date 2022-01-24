@@ -8,7 +8,6 @@ import CampusFrom from "./Forms/CampusForm"
 export default function EditCampus() {
     const location = useLocation()
     const { id } = location.state
-    console.log(id)
     const navigate = useNavigate()
     const [errorMsg, showErrorMsg] = React.useState(false)
 
@@ -52,10 +51,8 @@ export default function EditCampus() {
         async function getStudents() {
             try {
                 const {data} = await Axios.get("http://localhost:8080/api/students")
-                console.log(data)
                 setStudents(data)
                 setStudentAdded(false)
-                filterStudents()
             } catch (error) {
                 console.log(error)
                 showErrorMsg(true)
@@ -70,6 +67,10 @@ export default function EditCampus() {
 
 
     }, [studentAdded])
+
+    React.useEffect(function () {
+        filterStudents()
+    }, [students])
 
     async function addStudentToCampus(event) {
         event.preventDefault()
@@ -96,6 +97,9 @@ export default function EditCampus() {
                 return student
         }))
     }
+
+    console.log(students)
+    console.log(assignedStudents.length)
 
     return (
         <div>
