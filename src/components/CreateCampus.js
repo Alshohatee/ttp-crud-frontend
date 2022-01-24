@@ -10,9 +10,7 @@ export default function CreateCampus(){
   const [imageUrl, setImageUrl] = useState("")
   const [address, setAddress] = useState("")
   const [description, setDescription] = useState("") 
-
   const [redirect, setRedirect] = useState(false)
-
 
 
   async function submitHandler(e){
