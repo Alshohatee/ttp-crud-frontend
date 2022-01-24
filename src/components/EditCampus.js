@@ -8,6 +8,7 @@ import CampusFrom from "./Forms/CampusForm"
 export default function EditCampus() {
     const location = useLocation()
     const { id } = location.state
+    console.log(id)
     const navigate = useNavigate()
     const [errorMsg, showErrorMsg] = React.useState(false)
 

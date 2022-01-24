@@ -38,7 +38,7 @@ export default function CampusesView( props ) {
             
           {
               campuses.length !== 0 ?
-                campuses.map(campus => <CampusCard key={nanoid()}  campus={[campus, false]} />)
+                campuses.map(campus => <CampusCard key={nanoid()}   campus={[campus,true ]}  />)
               :
                 <h2> No Campuses </h2>
           }

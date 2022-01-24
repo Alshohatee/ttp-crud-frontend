@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import React ,  { useState } from "react"
+import React  from "react"
 import {Link }from "react-router-dom";
 import {Card, Button} from 'react-bootstrap';
 
@@ -50,16 +50,16 @@ export default function CampusCard( props ) {
     return (
         <div>
             <Card style={{ width: '18rem' , margin: '10px' , background: '#A0A0A0'}}>
-                <Card.Img variant="top" style={{ marginTop: '10px'}} src= {info.image? info.image :'https://picsum.photos/200'} />
+                <Card.Img variant="top" style={{ marginTop: '10px'}} src= {info.imgUrl? info.image :'https://picsum.photos/200'} />
                 <Card.Body>
                         <Card.Title> Campus Name  {info.name} </Card.Title>
                       
                         <Card.Text>
-                        { !(props.campus.description) ? <CardWithInfo /> : <CardLessInfo />}
+                        { !(info.description) ? <CardWithInfo /> : <CardLessInfo />}
 
                         </Card.Text>
                         {!showAll&& <Link
-                            to={`/singlecampusview/${info.id}`}
+                            to={`/singlecampusview/${ info.id}`}
                             state={{ id: info.id }}>
                             <Button variant="primary"> view </Button> 
                         </Link> }
