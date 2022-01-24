@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios"
 import { Navigate } from 'react-router-dom';
 import NavBar from './NavBar'
-import StudentForm from "./Forms/Student";
+// import StudentForm from "./Forms/Student";
 
 export default function CreateStudent(){
 
@@ -13,12 +13,13 @@ export default function CreateStudent(){
   const [image, setImage] = useState("")
   const [gpa, setGPA] = useState("")
   const [redirect, setRedirect] = useState(false)
-  
-  async function handleSubmit(e){
-    e.preventDefault()
-    await Axios.post(`http://localhost:8080/api/students`, {firstName, lastName, email, image, gpa})
-    setRedirect(true)
-  }
+    
+    async function handleSubmit(e,values){
+      e.preventDefault()
+      await Axios.post(`http://localhost:8080/api/students`, {values})
+      setRedirect(true)
+    }
+
   
  if (redirect) {    
       
@@ -29,7 +30,7 @@ export default function CreateStudent(){
   return (
     <div>
       <NavBar />
-      {/* <h1>Add a Student to the Registry</h1>
+      <h1>Add a Student to the Registry</h1>
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
@@ -57,8 +58,10 @@ export default function CreateStudent(){
         </label><br/>
 
         <input type="submit" value="Submit" />
-      </form> */}
-      < StudentForm props={[handleSubmit, firstName, lastName, email, image,gpa,setFirstName, setLastName, setEmail, setImage,setGPA]}/>
+      </form>
+   
+      {/* <StudentForm props={[handleSubmit, firstName, lastName, email, image,gpa,setFirstName, setLastName, setEmail, setImage,setGPA]}/> */}
+     
     </div>
   )
 }

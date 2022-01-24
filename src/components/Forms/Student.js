@@ -47,11 +47,21 @@ export default function StudentForm(props){
                 .email('Invalid email address')
 
                 .required('Please Enter Email Id'),
+            
+            gpa: yup.number()
+             .typeError('gpa must be a number')
         }),
 
+       
         onSubmit: values => {
 
-            alert(JSON.stringify(values));
+            let string = JSON.stringify(values);
+            string.split(",")
+            setFirstName = string[0];
+            console.log(firstName);
+            setLastName = string[1];
+            setEmail = string[2];
+            setGPA = string[3];
 
         }
 
@@ -69,7 +79,7 @@ export default function StudentForm(props){
 
                     <label htmlFor="firstName"> First Name : </label>
 
-                    <input type="text" name="firstName" value = {firstName} onChange={(e) =>setFirstName(e.target.value)}></input>
+                    <input type="text" name="firstName" value = {firstName} onChange={(e) =>setFirstName(e.target.value)}  {...formik.getFieldProps("firstName")}></input>
                     {formik.touched.firstName && formik.errors.firstName ? <span style={{ color: 'red' }}>{formik.errors.firstName}</span> : null}
 
                 </p>
@@ -78,7 +88,7 @@ export default function StudentForm(props){
 
                     <label htmlFor="lastName"> Last Name : </label>
 
-                    <input type="text" name="lastName" value = {lastName} onChange={(e) =>setLastName(e.target.value)} ></input>
+                    <input type="text" name="lastName" value = {lastName} onChange={(e) =>setLastName(e.target.value)}  {...formik.getFieldProps("lastName")} ></input>
 
                     {formik.touched.lastName && formik.errors.lastName ? <span style={{ color: 'red' }}>{formik.errors.lastName}</span> : null}
                 </p>
@@ -87,16 +97,17 @@ export default function StudentForm(props){
 
                     <label htmlFor="email">Email : </label>
 
-                    <input type="text" name="email" value = {email} onChange={(e) =>setEmail(e.target.value)} ></input>
+                    <input type="text" name="email" value = {email} onChange={(e) =>setEmail(e.target.value)}  {...formik.getFieldProps("email")} ></input>
 
                     {formik.touched.email && formik.errors.email ? <span style={{ color: 'red' }}>{formik.errors.email}</span> : null}
                 </p>
+                   
 
                 <p>
 
                     <label htmlFor="image"> Profile Image : </label>
 
-                    <input type="text" name="image" value = {image} onChange={(e) =>setImage(e.target.value)}></input>
+                    <input type="text" name="image" value = {image} onChange={(e) =>setImage(e.target.value)}  {...formik.getFieldProps("image")}></input>
 
                 </p>
 
@@ -104,15 +115,18 @@ export default function StudentForm(props){
 
                     <label htmlFor="gpa">GPA : </label>
 
-                    <input type="text" name="gpa" value={gpa} onChange={(e) =>setGPA(e.target.value)} ></input>
+                    <input type="text" name="gpa" value={gpa} onChange={(e) =>setGPA(e.target.value)}  {...formik.getFieldProps("gpa")} ></input>
+                    {formik.touched.gpa && formik.errors.gpa ? <span style={{ color: 'red' }}>{formik.errors.gpa}</span> : null}
                 </p>
                 <button type="submit">Submit</button>
 
             </form>
 
         </div>
-
-    )
+        
+        
+        )
+        
 
 }
 // const element=<StudentForm></StudentForm>
