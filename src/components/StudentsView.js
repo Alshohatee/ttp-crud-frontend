@@ -4,11 +4,6 @@ import StudentCard from './StudentCard'
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
 
-// ○	[   ] see a list of all students in the database
-// ○	[   ] see an informative message if no students exist
-// ○	[   ] add a new student
-//     ■	[   ] with a validated form displaying real-time error messages
-//     ■	[   ] which redirects the new student’s single student view
 
 export default function StudentsView( props ) {
     // use hooks to store students list from pros

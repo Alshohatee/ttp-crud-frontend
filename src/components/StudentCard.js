@@ -13,27 +13,25 @@ console.log("hello")
  
     return (
         <div>
+            <Card style={{ width: '18rem' , margin: '10px' , background: '#A0A0A0'}}>
+                <Card.Img variant="top" style={{ marginTop: '10px'}} src= {info.image? info.image :'https://picsum.photos/200'} />
+                  <Card.Body>
+                    <Card.Title> Student Name  {info.firstName } {info.lastName } </Card.Title>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+                    Email: {info.email }
+                    GPA: {info.gpa }
+                    </Card.Text>
+                    <Link to={'/studentsingleview/'+ info.id} >
+                                        
+                      <Button variant="primary"> view </Button>
+                    </Link>
 
-             
-<Card style={{ width: '18rem' , margin: '10px' , background: '#A0A0A0'}}>
-<Card.Img variant="top" style={{ marginTop: '10px'}} src= {info.image? info.image :'https://picsum.photos/200'} />
-  <Card.Body>
-    <Card.Title> Student Name  {info.firstName } {info.lastName } </Card.Title>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-     Email: {info.email }
-     GPA: {info.gpa }
-    </Card.Text>
-     <Link to={'/studentsingleview/'+ info.id} >
-                        
-      <Button variant="primary"> view </Button>
-    </Link>
+                      <Link to={`/editstudent/1`} state={{ id: 1 }}><Button variant="primary">Edit</Button></Link>
 
-      <Link to={`/editstudent/1`} state={{ id: 1 }}><Button variant="primary">Edit</Button></Link>
-
-     {showAll&& (<button onClick={()=> handleClick()}>Delete </button>)}
-  </Card.Body>
-</Card>
+                    {showAll&& (<button onClick={()=> handleClick()}>Delete </button>)}
+                  </Card.Body>
+            </Card>
             
         </div>
     )

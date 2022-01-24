@@ -55,7 +55,7 @@ export default function CampusCard( props ) {
                         <Card.Title> Campus Name  {info.name} </Card.Title>
                       
                         <Card.Text>
-                        { !(info.description) ? <CardWithInfo /> : <CardLessInfo />}
+                        { (showAll) ? <CardWithInfo /> : <CardLessInfo />}
 
                         </Card.Text>
                         {!showAll&& <Link
