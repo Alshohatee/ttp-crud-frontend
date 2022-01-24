@@ -10,6 +10,7 @@ import StudentCard from "./StudentCard";
 export default function SingleCampusView() {
 
     const location = useLocation()
+    
     const { id } = location.state
 
     const [campusesInfo, setCampusInfo] = useState([])

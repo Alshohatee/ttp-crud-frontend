@@ -22,7 +22,9 @@ console.log("hello")
                     Email: {info.email }
                     GPA: {info.gpa }
                     </Card.Text>
-                    <Link to={'/studentsingleview/'+ info.id} >
+                    <Link to={'/studentsingleview/'+ info.id}
+                      state={{ id: info.id }}>
+
                                         
                       <Button variant="primary"> view </Button>
                     </Link>
