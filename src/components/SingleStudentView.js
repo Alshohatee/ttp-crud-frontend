@@ -45,14 +45,7 @@ export default function SingleStudentView() {
         <NavBar />
         
         <StudentCard props = {[studentInfo, true, ()=> handleOnClick() ]}/>
-       {/* <img  src={studentInfo.imageUrl} />
-        <p> {studentInfo.firstName}</p>
-        <p> {studentInfo.lastName}</p>
-        <p> {studentInfo.email}</p>
-        <p> {studentInfo.gpa}</p> */}
-        {/* <button onClick={()=> handleOnClick()}>
-          Delete
-        </button> */}
+     
     { isDelete ? <h1> {studentInfo.firstName} Deleted </h1> : null}
 
 {/* studentsAtCampus will be render here  */}
