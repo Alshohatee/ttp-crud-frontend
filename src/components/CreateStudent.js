@@ -58,7 +58,7 @@ export default function CreateStudent(){
 
         <input type="submit" value="Submit" />
       </form> */}
-      < StudentForm props={[handleSubmit, firstName, lastName, email, imageUrl,address,description,setFirstName, setLastName, setEmail, setImageUrl,setAddress,setDescription]}/>
+      < StudentForm props={[handleSubmit, firstName, lastName, email, image,gpa,setFirstName, setLastName, setEmail, setImage,setGPA]}/>
     </div>
   )
 }

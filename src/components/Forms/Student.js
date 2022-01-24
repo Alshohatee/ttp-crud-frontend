@@ -10,7 +10,7 @@ import * as yup from 'yup';
 
 export default function StudentForm(props){
 
-    const [handleSubmit, firstName, lastName, email, image, address , description,setFirstName, setLastName, setEmail, setImageUrl,setAddress,setDescription] = [...props.props]
+    const [handleSubmit, firstName, lastName, email, image, gpa,setFirstName, setLastName, setEmail, setImage,setGPA] = [...props.props]
     const formik = useFormik({
 
         initialValues: {
@@ -23,9 +23,7 @@ export default function StudentForm(props){
 
             image: '',
 
-            address: '',
-
-            description: ''
+            gpa: ''
 
         },
 
@@ -96,25 +94,18 @@ export default function StudentForm(props){
 
                 <p>
 
-                    <label htmlFor="image">Image Url : </label>
+                    <label htmlFor="image"> Profile Image : </label>
 
-                    <input type="text" name="image" value = {image} onChange={(e) =>setImageUrl(e.target.value)}></input>
+                    <input type="text" name="image" value = {image} onChange={(e) =>setImage(e.target.value)}></input>
 
                 </p>
 
                 <p>
 
-                    <label htmlFor="address">Address : </label>
+                    <label htmlFor="gpa">GPA : </label>
 
-                    <input type="text" name="address" value={address} onChange={(e) =>setAddress(e.target.value)} ></input>
+                    <input type="text" name="gpa" value={gpa} onChange={(e) =>setGPA(e.target.value)} ></input>
                 </p>
-                <p>
-
-                    <label htmlFor="description"> Description : </label>
-
-                    <input type="text" name="description" value={description} onChange={(e) =>setDescription(e.target.value)} ></input>
-                </p>
-
                 <button type="submit">Submit</button>
 
             </form>
