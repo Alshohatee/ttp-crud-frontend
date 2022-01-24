@@ -2,7 +2,7 @@
 import NavBar from './NavBar'
 import Axios from "axios"
 import React, { useEffect, useState } from "react";
-
+import CampusCard from './CampusCard'
 
 // ○	[   ] see details about a single campus, including enrolled students (if any)
 // ○	[   ] see an informative message if no students are enrolled at that campus
@@ -40,7 +40,7 @@ export default function SingleCampusView() {
           setIsDelete(false)
             console.error('There was an error!', error);
         })
-
+setCampusInfo([])
       }
       
 
@@ -48,13 +48,15 @@ export default function SingleCampusView() {
     return (
         <div>
         <NavBar />
-       <img  src={campusesInfo.imageUrl} />
+       {/* <img  src={campusesInfo.imageUrl} />
         <p> {campusesInfo.name}</p>
         <p> {campusesInfo.address}</p>
         <p> {campusesInfo.description}</p>
         <button onClick={()=> handleOnClick()}>
           Delete
-        </button>
+        </button> */}
+
+      <CampusCard  key={campusesInfo.id}  campus={[campusesInfo,true,handleOnClick ] } />
     { isDelete ? <h1> {campusesInfo.name} Deleted </h1> : null}
 
 {/* studentsAtCampus will be render here  */}

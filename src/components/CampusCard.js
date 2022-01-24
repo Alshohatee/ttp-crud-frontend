@@ -58,11 +58,11 @@ export default function CampusCard( props ) {
                         { !(props.campus.description) ? <CardWithInfo /> : <CardLessInfo />}
 
                         </Card.Text>
-                        <Link
+                        {!showAll&& <Link
                             to={`/singlecampusview/${props.id}`}
                             state={{ id: props.id }}>
                             <Button variant="primary"> view </Button> 
-                        </Link>
+                        </Link> }
 
                         <Link
                             to={`/editcampus/${props.id}`}
