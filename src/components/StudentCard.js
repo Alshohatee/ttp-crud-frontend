@@ -27,7 +27,10 @@ console.log("hello")
      <Link to={'/studentsingleview/'+ info.id} >
                         
       <Button variant="primary"> view </Button>
-    </Link> 
+    </Link>
+
+      <Link to={`/editstudent/1`} state={{ id: 1 }}><Button variant="primary">Edit</Button></Link>
+
      {showAll&& (<button onClick={()=> handleClick()}>Delete </button>)}
   </Card.Body>
 </Card>

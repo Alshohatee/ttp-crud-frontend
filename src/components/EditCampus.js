@@ -97,8 +97,6 @@ export default function EditCampus() {
         }))
     }
 
-
-    console.log(unassignedStudents == true)
     return (
         <div>
             <h1>Edit Campus</h1>
