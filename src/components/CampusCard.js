@@ -59,14 +59,14 @@ export default function CampusCard( props ) {
 
                         </Card.Text>
                         {!showAll&& <Link
-                            to={`/singlecampusview/${props.id}`}
-                            state={{ id: props.id }}>
+                            to={`/singlecampusview/${info.id}`}
+                            state={{ id: info.id }}>
                             <Button variant="primary"> view </Button> 
                         </Link> }
 
                         <Link
-                            to={`/editcampus/${props.id}`}
-                            state={{ id: props.id }}>
+                            to={`/editcampus/${info.id}`}
+                            state={{ id: info.id }}>
                             <Button variant="primary"> Update </Button> 
                         </Link>
 
