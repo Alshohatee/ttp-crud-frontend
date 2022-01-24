@@ -7,6 +7,7 @@ import { nanoid } from "nanoid"
 export default function EditCampus() {
     const location = useLocation()
     const { id } = location.state
+    console.log(id)
     const navigate = useNavigate()
     const [errorMsg, showErrorMsg] = React.useState(false)
 
