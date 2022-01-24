@@ -103,14 +103,14 @@ export default function EditCampus() {
         <div>
             <h1>Edit Campus</h1>
             <NavBar />
-            <form onSubmit={submitHandler}> <br/>
+            {/* <form onSubmit={submitHandler}> <br/>
                 <label>Campus Name<input type = "text" name="name" value={formElements.name} onChange={changeHandler} /></label><br/>
                 <label>Campus Location<input type = "text" name="address" value={formElements.address} onChange={changeHandler} /></label><br/>
                 <label>Campus Image URL<input type = "text" name="image" value={formElements.image} onChange={changeHandler} /></label><br/>
                 <label>Campus Description<input type = "text" name="description" value={formElements.description} onChange={changeHandler} /></label><br/>
                 <button>Save Changes</button>
                 {errorMsg && <span style={{color: "red"}}>An error has occurred. Detailed error info available on backend server console.</span>}
-            </form>
+            </form> */}
                 {/* I add this  */}
                 < CampusFrom props={[submitHandler, name, ImageUrl, address, description,setName , setImageUrl, setAddress, setDescription]}/>
             <h2>Unassigned Students</h2>
